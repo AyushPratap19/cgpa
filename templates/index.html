@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGPA Calculator</title>
+    <style>
+       
+body {
+    background-image: url(https://t3.ftcdn.net/jpg/04/88/37/12/360_F_488371224_wl11l61V8BRvmJ3ZMWg00Hp3Nw9wZ1zu.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    background-color: #9d9494;
+    margin: 0;
+    padding: 0;
+    
+}
+
+h1 {
+    color: #edc5c5;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+form {
+    background-image: url(https://t3.ftcdn.net/jpg/04/88/37/12/360_F_488371224_wl11l61V8BRvmJ3ZMWg00Hp3Nw9wZ1zu.jpg);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 70%;
+    margin-left: 200px;
+}
+
+label {
+    display: flex;
+    margin-bottom: 5px;
+    color: white;
+    align-items: center;
+    
+}
+
+input[type="text"],
+input[type="number"],
+button {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ece0e0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+button {
+    background-color: #163c65;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 15%;
+    margin-left: 420px;
+    font-size: 20px;
+   
+    
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Enter Details</h1>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    
+    <form action="/check_student" method="post">
+        <label for="usn">USN:</label>
+        <input type="text" id="usn" name="usn" required><br><br>
+        <label for="semester">Semester:</label>
+        <input type="number" id="semester" name="semester" required><br><br>
+        <button type="submit">Check Student</button>
+    </form>
+</body>
+</html>

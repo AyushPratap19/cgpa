@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overall CGPA</title>
+    <style>
+        
+
+
+body {
+    background-image: url(https://t3.ftcdn.net/jpg/04/88/37/12/360_F_488371224_wl11l61V8BRvmJ3ZMWg00Hp3Nw9wZ1zu.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+h1 {
+    color: #ada6a6;
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+p {
+    color: #dea1a1;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 25px;
+}
+
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Overall CGPA</h1>
+    <p>{{ student_name }}, your overall CGPA is: {{ cgpa|round(4) }}</p>
+    
+    <!-- Link to go back to index.html -->
+    <a href="{{ url_for('index') }}">Back To Home</a>
+</body>
+</html>

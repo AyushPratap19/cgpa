@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Exists</title>
+    <style>
+        
+body {
+    background-image: url(https://t3.ftcdn.net/jpg/04/88/37/12/360_F_488371224_wl11l61V8BRvmJ3ZMWg00Hp3Nw9wZ1zu.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    
+    margin: 0;
+    padding: 0;
+   
+}
+.info
+{
+    color: rgb(198, 190, 190);
+    display: block;
+    margin-left: 600px;
+    font-size: 24px;
+    
+}
+
+h1 {
+    color: #fbf9f9;
+    display: flex;
+    justify-content: center;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+form {
+    background-image: url(https://t3.ftcdn.net/jpg/04/88/37/12/360_F_488371224_wl11l61V8BRvmJ3ZMWg00Hp3Nw9wZ1zu.jpg);
+display: flex;
+justify-content: center;
+font-size: 24px;
+padding-top: 20px;
+padding-bottom: 10px;
+border-radius: 15px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+width: 70%;
+margin-left: 221px;
+}
+
+label {
+
+    display: flex;
+    margin-bottom: 5px;
+    color: white;
+    align-items: center;
+}
+
+input[type="text"],
+input[type="number"],
+button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #163c65;
+color: #fff;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+width: 19%;
+margin-left: 389px;
+font-size: 20px;
+padding: 14px;
+   
+    
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+a {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+.Disclaimer
+{
+display: flex;
+justify-content: center;
+font-size: 20px;
+color: rgb(244, 115, 115);
+padding: 10px;
+
+}
+
+    </style>
+</head>
+<body>
+    <h1>Student Data Already Exists</h1>
+    <div class="info">
+    <p>USN: {{ student[1] }}</p>
+    <p>Name: {{ student[2] }}</p>
+    <p>Semester: {{ student[3] }}</p>
+    <p>Total Marks: {{ student[4] }}</p>
+    <p>Total Grade Points: {{ student[5] }}</p>
+    <p>SGPA: {{ student[6] }}</p>
+
+</div>
+<div class="Disclaimer">Disclaimer:Calculate overall CGPA only if SGPA of all previous semester is saved</div>
+
+
+    
+    <form action="/calculate_cgpa" method="post">
+        <input type="hidden" name="usn" value="{{ student[1] }}">
+        <label for="calculate_cgpa">Calculate CGPA across all semesters:</label>
+        <button type="submit">Calculate CGPA</button>
+    </form>
+    
+    <a href="{{ url_for('index') }}">Back To Home</a>
+</body>
+</html>
+

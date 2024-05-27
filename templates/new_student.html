@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Student</title>
+    <style>
+      
+body {
+    background-image: url(https://t3.ftcdn.net/jpg/04/88/37/12/360_F_488371224_wl11l61V8BRvmJ3ZMWg00Hp3Nw9wZ1zu.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: rgb(243, 208, 208);
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    margin-left: 414px;
+    color: white;
+}
+
+input[type="text"],
+input[type="number"],
+button {
+    width: 40%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 15px;
+    margin-left: 414px;
+}
+
+button {
+    background-color: #163c65;
+color: #fff;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+width: 19%;
+margin-left: 545px;
+font-size: 20px;
+padding: 14px;
+   
+    
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Enter Student Details</h1>
+    <form action="/calculate" method="post">
+        <input type="hidden" name="usn" value="{{ usn }}">
+        <input type="hidden" name="semester" value="{{ semester }}">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        {% for subject in subjects %}
+            <label for="mark_{{ subject[0] }}">Marks for {{ subject[1] }}:</label>
+            <input type="number" id="mark_{{ subject[0] }}" name="mark_{{ subject[0] }}" required><br><br>
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
